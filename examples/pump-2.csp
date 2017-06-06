@@ -1,0 +1,8 @@
+SPEC = PUMP1 ||| PUMP2
+
+PUMP1 = liftnozzle1 -> READY1
+READY1 = replacenozzle1 -> PUMP1 [] depresstrigger1 -> releasetrigger1 -> READY1
+
+PUMP2 = liftnozzle2 -> READY2
+READY2 = replacenozzle2 -> PUMP2 [] depresstrigger2 -> releasetrigger2 -> READY2
+

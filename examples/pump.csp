@@ -1,0 +1,5 @@
+PUMP(1) ||| PUMP(2)
+
+PUMP(i) = liftnozzle.i -> READY(i)
+READY(i) = replacenozzle.i -> PUMP(i) [] depresstrigger.i -> releasetrigger.i -> READY(i)
+

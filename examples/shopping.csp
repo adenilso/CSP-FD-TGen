@@ -1,0 +1,6 @@
+SECURESHOP = enter -> SHOPPING [ {enter,leave,select,pay} || {leave,select,play}] SECURITY
+SHOPPING = select -> SHOPPING [] pay -> SHOPPING [] leave -> enter -> SHOPPING
+
+SECURITY = select -> WATCH [] pay -> SECURITY [] leave -> SECURITY
+
+WATCH = select -> WATCH [] pay -> SECURITY

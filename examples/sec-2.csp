@@ -1,0 +1,3 @@
+SEC = in -> (send1 -> rec1 -> STOP [] send2 -> rec2 -> STOP)
+
+DELEGATE = SEC \ {send1, send2}

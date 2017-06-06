@@ -1,0 +1,5 @@
+channel add, sub
+SPEC = S0
+S0 = add -> S1
+S1 = add -> S2 [] sub -> S0
+S2 = sub -> S1

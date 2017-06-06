@@ -1,0 +1,5 @@
+channel send, rec
+
+SEC = in -> (send.1 -> rec.1 -> STOP [] send.2 -> rec.2 -> STOP)
+
+DELEGATE = SEC \ {|send|}

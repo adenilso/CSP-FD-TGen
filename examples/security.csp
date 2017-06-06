@@ -1,0 +1,3 @@
+SECURITY = select -> WATCH [] pay -> SECURITY [] leave -> SECURITY
+
+WATCH = select -> WATCH [] pay -> SECURITY

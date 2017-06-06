@@ -1,0 +1,5 @@
+CROSS  = gateraise -> trainapproach -> gatelower -> ENT
+                 []
+                 trainapproach -> ENT
+
+ENT = trainenter -> trainleave -> CROSS

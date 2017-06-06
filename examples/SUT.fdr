@@ -1,0 +1,4 @@
+SUT = I0
+I0 = add -> I1
+I1 = sub -> I2
+I2 = STOP
