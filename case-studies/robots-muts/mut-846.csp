@@ -1,0 +1,1 @@
+SUT = (STOP [] datastream -> reflect -> reflect -> datastream -> testdata -> datastream -> testselfTestReq -> STOP [] readyselfTestReq -> STOP)

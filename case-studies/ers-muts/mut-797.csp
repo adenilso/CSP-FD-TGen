@@ -1,0 +1,1 @@
+SUT = (STOP [] receive_message -> drop_message -> STOP [] service_rescue -> STOP)

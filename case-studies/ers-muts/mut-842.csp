@@ -1,0 +1,1 @@
+SUT = (STOP [] target_not_attended -> STOP [] find_idle_erus -> allocate_idle_eru -> STOP)

@@ -1,0 +1,1 @@
+SUT = (statusOk -> readynext -> STOP [] STOP [] statustotalFailure -> STOP)

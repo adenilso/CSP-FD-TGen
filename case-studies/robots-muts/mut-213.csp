@@ -1,0 +1,1 @@
+SUT = (procdata -> STOP [] totalAssertion -> emit -> totalAssertion -> statusOk -> STOP [] totalAssertion -> reflect -> STOP)

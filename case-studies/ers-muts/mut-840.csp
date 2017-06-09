@@ -1,0 +1,1 @@
+SUT = (send_rescue_info_to_eru -> end_recovery -> process_message -> error_1_detection -> STOP [] STOP [] start_rescue -> STOP)

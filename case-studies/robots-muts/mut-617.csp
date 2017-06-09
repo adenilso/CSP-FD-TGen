@@ -1,0 +1,1 @@
+SUT = (localAssertion -> emit -> STOP [] statustotalFailure -> STOP [] STOP)

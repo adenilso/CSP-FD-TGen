@@ -1,0 +1,1 @@
+SUT = (datastream -> testdata -> emit -> readynext -> STOP [] datastream -> STOP [] STOP)

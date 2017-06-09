@@ -1,0 +1,1 @@
+SUT = (datastream -> localAssertion -> statuspartialFailure -> STOP [] testnext -> STOP [] procdata -> STOP)

@@ -1,0 +1,1 @@
+SUT = (STOP [] testnext -> STOP [] procdata -> statusOk -> statusOk -> STOP)

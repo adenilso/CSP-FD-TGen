@@ -1,0 +1,1 @@
+SUT = (start_rescue -> target_not_attended -> STOP [] service_rescue -> STOP [] STOP)

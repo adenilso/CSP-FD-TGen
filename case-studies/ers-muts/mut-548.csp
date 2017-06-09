@@ -1,0 +1,1 @@
+SUT = (find_idle_erus -> wait -> end_recovery -> STOP [] STOP [] target_not_attended -> STOP)

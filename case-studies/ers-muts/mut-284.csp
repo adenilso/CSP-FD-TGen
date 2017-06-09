@@ -1,0 +1,1 @@
+SUT = (process_message -> STOP [] fault_1_activation -> STOP [] start_rescue -> wait -> error_1_detection -> allocate_idle_eru -> log_fault_1 -> allocate_idle_eru -> STOP)

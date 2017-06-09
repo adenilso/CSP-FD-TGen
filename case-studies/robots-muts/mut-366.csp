@@ -1,0 +1,1 @@
+SUT = (STOP [] testnext -> localAssertion -> STOP [] totalAssertion -> STOP)

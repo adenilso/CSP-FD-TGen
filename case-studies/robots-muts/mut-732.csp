@@ -1,0 +1,1 @@
+SUT = (emit -> statuspartialFailure -> procdata -> STOP [] STOP [] statustotalFailure -> STOP)

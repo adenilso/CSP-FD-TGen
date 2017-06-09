@@ -1,0 +1,1 @@
+SUT = (STOP [] drop_message -> STOP [] find_idle_erus -> allocate_idle_eru -> end_recovery -> error_1_detection -> fault_1_activation -> send_rescue_info_to_eru -> STOP)

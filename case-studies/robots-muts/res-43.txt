@@ -1,0 +1,93 @@
+T_T(<>, procdata) = pass
+T_T(<>, testselfTestReq) = pass
+T_T(<>, testnext) = pass
+T_T(<>, readyselfTestReq) = pass
+T_T(<>, readynext) = fail
+>>>not (Lsensor [T= SUT)
+<<<not (Lsensor [T= SUT)
+SUT = (STOP [] statuspartialFailure -> STOP [] readynext -> readynext -> emit -> readyselfTestReq -> STOP)
+
+
+
+channel statusOk, statuspartialFailure, statustotalFailure
+
+
+
+channel procdata
+
+
+channel testselfTestReq, testnext, readyselfTestReq, readynext
+
+channel testdata
+
+
+
+
+
+
+
+
+
+
+
+Self_test =
+  statusOk ->
+    procdata -> (testselfTestReq -> readyselfTestReq ->
+                    testdata -> Self_test
+                 []
+                 testnext -> readynext ->
+                    Self_test)
+  [] statuspartialFailure ->
+        readynext -> Self_test
+  [] statustotalFailure -> Self_test
+
+channel emit, reflect
+
+channel datastream
+
+channel localAssertion, totalAssertion
+
+
+
+
+
+
+Hardware_control = emit -> reflect -> datastream -> 
+  (readyselfTestReq ->
+     testdata -> Hardware_control
+   [] 
+   readynext -> 
+     Hardware_control)
+   
+
+
+
+
+
+Data_processing = statusOk -> datastream -> procdata ->
+                    localAssertion -> Data_processing
+                  []
+                  statuspartialFailure -> datastream -> procdata -> 
+                    Data_processing 
+                  [] 
+                  statustotalFailure -> Data_processing
+
+Interpretation = 
+  Hardware_control
+    [| {| datastream, readyselfTestReq, readynext, testdata |} |]
+  (Data_processing
+    [| {| procdata, statusOk, statuspartialFailure, statustotalFailure |} |]
+   Self_test)
+  
+
+
+
+
+Consensus = localAssertion -> totalAssertion -> (testselfTestReq -> Consensus [] testnext -> Consensus)
+            []
+            totalAssertion -> Consensus
+
+Lsensor = Interpretation [| {| localAssertion, testselfTestReq, testnext |} |] Consensus
+
+(( (( (( (( RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } ) ) [| { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } |] ((statusOk -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statuspartialFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statustotalFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testselfTestReq -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testnext -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (readyselfTestReq -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (readynext -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testdata -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (emit -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (reflect -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (datastream -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (localAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (totalAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )))) ) [| { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } |] ((statusOk -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statuspartialFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statustotalFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (procdata -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testnext -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (readyselfTestReq -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (readynext -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testdata -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (emit -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (reflect -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (datastream -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (localAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (totalAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )))) ) [| { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } |] ((statusOk -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statuspartialFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statustotalFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (procdata -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testselfTestReq -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (readyselfTestReq -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (readynext -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testdata -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (emit -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (reflect -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (datastream -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (localAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (totalAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )))) ) [| { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } |] ((statusOk -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statuspartialFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (statustotalFailure -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (procdata -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testselfTestReq -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testnext -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (readynext -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (testdata -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (emit -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (reflect -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (datastream -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (localAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } )) [] (totalAssertion -> RUN( { statusOk, statuspartialFailure, statustotalFailure, procdata, testselfTestReq, testnext, readyselfTestReq, readynext, testdata, emit, reflect, datastream, localAssertion, totalAssertion } ))))
+@@@ faulty faulty true

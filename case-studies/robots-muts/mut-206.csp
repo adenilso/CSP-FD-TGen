@@ -1,0 +1,1 @@
+SUT = (statusOk -> STOP [] localAssertion -> statuspartialFailure -> STOP [] STOP)

@@ -1,0 +1,1 @@
+SUT = (find_idle_erus -> wait -> fault_1_activation -> STOP [] STOP [] find_idle_erus -> process_message -> STOP)

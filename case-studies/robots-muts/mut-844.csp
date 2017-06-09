@@ -1,0 +1,1 @@
+SUT = (emit -> STOP [] procdata -> testnext -> testnext -> statusOk -> readyselfTestReq -> testnext -> STOP [] STOP)

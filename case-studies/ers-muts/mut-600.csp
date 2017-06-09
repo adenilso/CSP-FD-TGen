@@ -1,0 +1,1 @@
+SUT = (drop_message -> find_idle_erus -> target_not_attended -> STOP [] STOP [] receive_message -> STOP)

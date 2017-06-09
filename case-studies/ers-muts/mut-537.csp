@@ -1,0 +1,1 @@
+SUT = (wait -> log_fault_1 -> find_idle_erus -> process_message -> STOP [] STOP [] target_not_attended -> STOP)

@@ -1,0 +1,1 @@
+SUT = (reflect -> STOP [] STOP [] statusOk -> totalAssertion -> STOP)

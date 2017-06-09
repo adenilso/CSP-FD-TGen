@@ -1,0 +1,1 @@
+SUT = (testdata -> STOP [] STOP [] localAssertion -> testselfTestReq -> emit -> datastream -> STOP)

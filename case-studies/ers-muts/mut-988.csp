@@ -1,0 +1,1 @@
+SUT = (STOP [] service_rescue -> end_recovery -> start_recovery -> STOP [] wait -> STOP)

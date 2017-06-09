@@ -1,0 +1,1 @@
+SUT = (end_recovery -> end_recovery -> receive_message -> wait -> STOP [] STOP [] start_recovery -> target_not_attended -> STOP)

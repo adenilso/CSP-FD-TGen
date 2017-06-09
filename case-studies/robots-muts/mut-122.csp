@@ -1,0 +1,1 @@
+SUT = (STOP [] statuspartialFailure -> datastream -> testdata -> STOP [] emit -> datastream -> readynext -> readynext -> STOP)

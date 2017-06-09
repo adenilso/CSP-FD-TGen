@@ -1,0 +1,1 @@
+SUT = (testdata -> totalAssertion -> reflect -> STOP [] datastream -> STOP [] STOP)

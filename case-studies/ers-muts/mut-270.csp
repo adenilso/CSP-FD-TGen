@@ -1,0 +1,1 @@
+SUT = (target_not_attended -> error_1_detection -> STOP [] STOP [] process_message -> STOP)

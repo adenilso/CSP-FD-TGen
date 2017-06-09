@@ -1,0 +1,1 @@
+SUT = (STOP [] emit -> statuspartialFailure -> STOP [] statustotalFailure -> STOP)

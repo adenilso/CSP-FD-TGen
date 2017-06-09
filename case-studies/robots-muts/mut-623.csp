@@ -1,0 +1,1 @@
+SUT = (procdata -> statustotalFailure -> STOP [] statustotalFailure -> STOP [] totalAssertion -> statuspartialFailure -> STOP)

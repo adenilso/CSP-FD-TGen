@@ -1,0 +1,1 @@
+SUT = (wait -> STOP [] process_message -> end_recovery -> error_1_detection -> target_not_attended -> STOP [] STOP)

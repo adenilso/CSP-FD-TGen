@@ -1,0 +1,1 @@
+SUT = (procdata -> datastream -> totalAssertion -> STOP [] STOP [] totalAssertion -> STOP)

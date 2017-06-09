@@ -1,0 +1,1 @@
+SUT = (STOP [] testselfTestReq -> totalAssertion -> STOP [] testdata -> statustotalFailure -> testnext -> testdata -> STOP)

@@ -1,0 +1,1 @@
+SUT = (statustotalFailure -> emit -> testselfTestReq -> STOP [] STOP [] localAssertion -> procdata -> statusOk -> STOP)

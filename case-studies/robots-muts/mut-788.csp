@@ -1,0 +1,1 @@
+SUT = (readynext -> STOP [] datastream -> totalAssertion -> reflect -> STOP [] STOP)

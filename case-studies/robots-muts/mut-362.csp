@@ -1,0 +1,1 @@
+SUT = (statustotalFailure -> statuspartialFailure -> emit -> STOP [] datastream -> statuspartialFailure -> reflect -> STOP [] emit -> testdata -> testnext -> readyselfTestReq -> testselfTestReq -> statuspartialFailure -> STOP)

@@ -1,0 +1,1 @@
+SUT = (drop_message -> send_rescue_info_to_eru -> STOP [] receive_message -> receive_message -> STOP [] error_1_detection -> STOP)

@@ -1,0 +1,1 @@
+SUT = (statusOk -> STOP [] testselfTestReq -> STOP [] testnext -> STOP)

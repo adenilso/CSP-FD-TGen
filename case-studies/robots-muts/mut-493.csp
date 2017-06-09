@@ -1,0 +1,1 @@
+SUT = (STOP [] procdata -> reflect -> STOP [] localAssertion -> STOP)

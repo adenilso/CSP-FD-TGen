@@ -1,0 +1,1 @@
+SUT = (wait -> STOP [] process_message -> STOP [] drop_message -> wait -> target_not_attended -> error_1_detection -> STOP)

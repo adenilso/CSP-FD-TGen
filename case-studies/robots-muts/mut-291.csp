@@ -1,0 +1,1 @@
+SUT = (procdata -> reflect -> localAssertion -> testdata -> testdata -> STOP [] STOP [] testdata -> statustotalFailure -> STOP)

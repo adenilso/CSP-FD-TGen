@@ -1,0 +1,1 @@
+SUT = (emit -> emit -> STOP [] STOP [] statusOk -> localAssertion -> STOP)

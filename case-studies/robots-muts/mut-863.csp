@@ -1,0 +1,1 @@
+SUT = (totalAssertion -> reflect -> STOP [] readynext -> readynext -> STOP [] testnext -> STOP)

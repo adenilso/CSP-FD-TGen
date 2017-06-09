@@ -1,0 +1,1 @@
+SUT = (STOP [] reflect -> readynext -> STOP [] reflect -> STOP)

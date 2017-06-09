@@ -1,0 +1,1 @@
+SUT = (statuspartialFailure -> datastream -> STOP [] testnext -> STOP [] STOP)

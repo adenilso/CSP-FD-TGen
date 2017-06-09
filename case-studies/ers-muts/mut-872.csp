@@ -1,0 +1,1 @@
+SUT = (STOP [] error_1_detection -> start_recovery -> wait -> STOP [] service_rescue -> allocate_idle_eru -> error_1_detection -> wait -> fault_1_activation -> service_rescue -> end_recovery -> STOP)

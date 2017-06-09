@@ -1,0 +1,1 @@
+SUT = (statuspartialFailure -> statusOk -> testdata -> STOP [] STOP [] reflect -> STOP)

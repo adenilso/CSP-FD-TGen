@@ -1,0 +1,1 @@
+SUT = (STOP [] testselfTestReq -> localAssertion -> STOP [] testdata -> STOP)

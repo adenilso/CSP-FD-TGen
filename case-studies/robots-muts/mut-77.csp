@@ -1,0 +1,1 @@
+SUT = (readynext -> testnext -> procdata -> totalAssertion -> STOP [] STOP [] emit -> STOP)

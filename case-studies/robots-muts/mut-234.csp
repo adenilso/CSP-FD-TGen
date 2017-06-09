@@ -1,0 +1,1 @@
+SUT = (readynext -> testselfTestReq -> readynext -> STOP [] localAssertion -> reflect -> testdata -> reflect -> localAssertion -> testselfTestReq -> STOP [] STOP)

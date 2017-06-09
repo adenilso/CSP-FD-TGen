@@ -1,0 +1,1 @@
+SUT = (reflect -> testdata -> STOP [] reflect -> totalAssertion -> STOP [] STOP)

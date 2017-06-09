@@ -1,0 +1,1 @@
+SUT = (STOP [] emit -> totalAssertion -> STOP [] testselfTestReq -> STOP)

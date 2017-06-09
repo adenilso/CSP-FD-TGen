@@ -1,0 +1,1 @@
+SUT = (testdata -> readynext -> procdata -> testnext -> STOP [] reflect -> STOP [] datastream -> STOP)

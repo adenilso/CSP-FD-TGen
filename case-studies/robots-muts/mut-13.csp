@@ -1,0 +1,1 @@
+SUT = (datastream -> emit -> STOP [] STOP [] statusOk -> STOP)

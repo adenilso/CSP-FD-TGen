@@ -1,0 +1,1 @@
+SUT = (STOP [] reflect -> STOP [] emit -> readyselfTestReq -> STOP)

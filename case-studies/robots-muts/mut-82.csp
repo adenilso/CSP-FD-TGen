@@ -1,0 +1,1 @@
+SUT = (STOP [] readynext -> testnext -> STOP [] statusOk -> statusOk -> emit -> STOP)

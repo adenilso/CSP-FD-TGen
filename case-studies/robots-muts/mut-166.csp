@@ -1,0 +1,1 @@
+SUT = (readynext -> statusOk -> STOP [] STOP [] localAssertion -> STOP)

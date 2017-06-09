@@ -1,0 +1,1 @@
+SUT = (totalAssertion -> STOP [] totalAssertion -> procdata -> STOP [] STOP)

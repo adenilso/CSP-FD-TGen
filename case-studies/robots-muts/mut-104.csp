@@ -1,0 +1,1 @@
+SUT = (reflect -> STOP [] procdata -> STOP [] statuspartialFailure -> statusOk -> totalAssertion -> STOP)

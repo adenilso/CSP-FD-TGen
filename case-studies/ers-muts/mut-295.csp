@@ -1,0 +1,1 @@
+SUT = (STOP [] find_idle_erus -> end_recovery -> log_fault_1 -> STOP [] process_message -> end_recovery -> STOP)

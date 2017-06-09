@@ -1,0 +1,1 @@
+SUT = (reflect -> STOP [] readynext -> statustotalFailure -> readynext -> datastream -> totalAssertion -> STOP [] readyselfTestReq -> datastream -> STOP)

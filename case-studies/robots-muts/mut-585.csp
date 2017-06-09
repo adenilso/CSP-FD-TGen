@@ -1,0 +1,1 @@
+SUT = (STOP [] statuspartialFailure -> statustotalFailure -> reflect -> reflect -> STOP [] statuspartialFailure -> statusOk -> totalAssertion -> STOP)

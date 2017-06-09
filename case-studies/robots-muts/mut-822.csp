@@ -1,0 +1,1 @@
+SUT = (STOP [] reflect -> localAssertion -> STOP [] testdata -> STOP)

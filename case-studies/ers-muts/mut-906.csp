@@ -1,0 +1,1 @@
+SUT = (STOP [] wait -> STOP [] start_rescue -> fault_1_activation -> STOP)

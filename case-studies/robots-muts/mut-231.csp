@@ -1,0 +1,1 @@
+SUT = (STOP [] reflect -> readyselfTestReq -> procdata -> STOP [] reflect -> STOP)

@@ -1,0 +1,1 @@
+SUT = (find_idle_erus -> STOP [] STOP [] receive_message -> find_idle_erus -> find_idle_erus -> receive_message -> STOP)

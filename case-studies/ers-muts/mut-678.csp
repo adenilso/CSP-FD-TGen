@@ -1,0 +1,1 @@
+SUT = (STOP [] log_fault_1 -> STOP [] start_recovery -> error_1_detection -> process_message -> service_rescue -> STOP)

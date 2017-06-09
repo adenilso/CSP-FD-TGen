@@ -1,0 +1,1 @@
+SUT = (start_rescue -> STOP [] STOP [] send_rescue_info_to_eru -> target_not_attended -> STOP)

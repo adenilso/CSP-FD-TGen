@@ -1,0 +1,1 @@
+SUT = (wait -> STOP [] log_fault_1 -> allocate_idle_eru -> STOP [] find_idle_erus -> STOP)

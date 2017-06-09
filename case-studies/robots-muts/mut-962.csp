@@ -1,0 +1,1 @@
+SUT = (STOP [] statusOk -> reflect -> STOP [] statusOk -> testdata -> STOP)

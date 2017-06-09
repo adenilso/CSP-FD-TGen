@@ -1,0 +1,1 @@
+SUT = (STOP [] wait -> fault_1_activation -> STOP [] drop_message -> STOP)

@@ -1,0 +1,1 @@
+SUT = (allocate_idle_eru -> start_rescue -> start_rescue -> end_recovery -> STOP [] STOP [] end_recovery -> STOP)

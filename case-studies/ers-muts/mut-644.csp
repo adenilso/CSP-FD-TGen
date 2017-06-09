@@ -1,0 +1,1 @@
+SUT = (STOP [] wait -> STOP [] service_rescue -> service_rescue -> service_rescue -> STOP)

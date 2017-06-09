@@ -1,0 +1,1 @@
+SUT = (log_fault_1 -> STOP [] error_1_detection -> STOP [] target_not_attended -> STOP)

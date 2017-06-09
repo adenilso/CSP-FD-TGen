@@ -1,0 +1,1 @@
+SUT = (readynext -> STOP [] localAssertion -> testnext -> procdata -> STOP [] statuspartialFailure -> STOP)

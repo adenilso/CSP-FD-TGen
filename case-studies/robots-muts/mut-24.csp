@@ -1,0 +1,1 @@
+SUT = (statusOk -> STOP [] STOP [] readynext -> statustotalFailure -> testdata -> emit -> totalAssertion -> STOP)

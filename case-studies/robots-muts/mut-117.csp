@@ -1,0 +1,1 @@
+SUT = (STOP [] procdata -> statuspartialFailure -> STOP [] testnext -> STOP)

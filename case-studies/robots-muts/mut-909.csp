@@ -1,0 +1,1 @@
+SUT = (STOP [] statuspartialFailure -> readyselfTestReq -> readyselfTestReq -> STOP [] datastream -> STOP)

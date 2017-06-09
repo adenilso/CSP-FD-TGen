@@ -1,0 +1,1 @@
+SUT = (reflect -> emit -> statusOk -> STOP [] readynext -> datastream -> STOP [] STOP)

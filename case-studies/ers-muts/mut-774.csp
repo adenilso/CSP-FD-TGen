@@ -1,0 +1,1 @@
+SUT = (STOP [] start_recovery -> wait -> drop_message -> wait -> receive_message -> start_rescue -> receive_message -> STOP [] drop_message -> STOP)

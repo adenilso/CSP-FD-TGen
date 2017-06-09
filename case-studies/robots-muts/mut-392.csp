@@ -1,0 +1,1 @@
+SUT = (STOP [] datastream -> STOP [] totalAssertion -> statuspartialFailure -> testselfTestReq -> emit -> statusOk -> STOP)

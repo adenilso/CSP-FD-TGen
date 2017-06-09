@@ -1,0 +1,1 @@
+SUT = (STOP [] testdata -> testnext -> STOP [] readyselfTestReq -> reflect -> STOP)

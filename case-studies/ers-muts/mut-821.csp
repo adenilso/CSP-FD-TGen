@@ -1,0 +1,1 @@
+SUT = (STOP [] start_rescue -> receive_message -> allocate_idle_eru -> STOP [] allocate_idle_eru -> STOP)

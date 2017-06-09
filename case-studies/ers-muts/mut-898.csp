@@ -1,0 +1,1 @@
+SUT = (receive_message -> wait -> receive_message -> STOP [] end_recovery -> STOP [] allocate_idle_eru -> process_message -> STOP)

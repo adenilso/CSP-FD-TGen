@@ -1,0 +1,1 @@
+SUT = (testdata -> STOP [] STOP [] statustotalFailure -> STOP)

@@ -1,0 +1,1 @@
+SUT = (log_fault_1 -> STOP [] find_idle_erus -> STOP [] allocate_idle_eru -> target_not_attended -> start_recovery -> STOP)

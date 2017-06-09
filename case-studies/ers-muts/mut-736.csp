@@ -1,0 +1,1 @@
+SUT = (find_idle_erus -> STOP [] start_rescue -> process_message -> STOP [] service_rescue -> log_fault_1 -> STOP)

@@ -1,0 +1,1 @@
+SUT = (STOP [] statuspartialFailure -> testdata -> testselfTestReq -> testselfTestReq -> statustotalFailure -> STOP [] testdata -> STOP)

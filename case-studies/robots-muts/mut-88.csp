@@ -1,0 +1,1 @@
+SUT = (readynext -> STOP [] statustotalFailure -> datastream -> STOP [] datastream -> STOP)

@@ -1,0 +1,1 @@
+SUT = (localAssertion -> testnext -> emit -> statusOk -> STOP [] STOP [] readynext -> STOP)

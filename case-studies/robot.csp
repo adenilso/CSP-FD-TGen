@@ -1,0 +1,83 @@
+-- datatype Status = statusOk | partialFailure | totalFailure
+
+-- channel status: Status
+channel statusOk, statuspartialFailure, statustotalFailure
+
+-- datatype Command = selfTestReq | next
+
+channel procdata
+
+-- channel test, ready: Command
+channel testselfTestReq, testnext, readyselfTestReq, readynext
+
+channel testdata
+
+-- Self_test =
+--   status?s ->
+--   if s == statusOk
+--   then procdata ->  test?x -> ready!x ->
+--          (if x == selfTestReq
+--           then (testdata -> Self_test)
+--           else Self_test)
+--   else (if s == partialFailure
+--         then ready!next -> Self_test
+--         else Self_test)
+Self_test =
+  statusOk ->
+    procdata -> (testselfTestReq -> readyselfTestReq ->
+                    testdata -> Self_test
+                 []
+                 testnext -> readynext ->
+                    Self_test)
+  [] statuspartialFailure ->
+        readynext -> Self_test
+  [] statustotalFailure -> Self_test
+
+channel emit, reflect
+
+channel datastream
+
+channel localAssertion, totalAssertion
+
+-- Hardware_control = emit -> reflect -> datastream -> ready?x ->
+--   if x == selfTestReq
+--   then testdata -> Hardware_control
+--   else Hardware_control
+
+Hardware_control = emit -> reflect -> datastream -> 
+  (readyselfTestReq ->
+     testdata -> Hardware_control
+   [] 
+   readynext -> 
+     Hardware_control)
+   
+-- Data_processing = status?s -> datastream -> procdata ->
+--                   if s == statusOk
+--                   then localAssertion -> Data_processing
+--                   else Data_processing 
+
+Data_processing = statusOk -> datastream -> procdata ->
+                    localAssertion -> Data_processing
+                  []
+                  statuspartialFailure -> datastream -> procdata -> 
+                    Data_processing 
+                  [] 
+                  statustotalFailure -> Data_processing
+
+Interpretation = 
+  Hardware_control
+    [| {| datastream, readyselfTestReq, readynext, testdata |} |]
+  (Data_processing
+    [| {| procdata, statusOk, statuspartialFailure, statustotalFailure |} |]
+   Self_test)
+  
+-- Consensus = localAssertion -> totalAssertion -> test?x -> Consensus
+--             []
+--             totalAssertion -> Consensus
+
+Consensus = localAssertion -> totalAssertion -> (testselfTestReq -> Consensus [] testnext -> Consensus)
+            []
+            totalAssertion -> Consensus
+
+Lsensor = Interpretation [| {| localAssertion, testselfTestReq, testnext |} |] Consensus
+

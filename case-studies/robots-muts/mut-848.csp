@@ -1,0 +1,1 @@
+SUT = (readynext -> STOP [] procdata -> STOP [] STOP)

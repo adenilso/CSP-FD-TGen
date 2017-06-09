@@ -1,0 +1,1 @@
+SUT = (STOP [] target_not_attended -> service_rescue -> allocate_idle_eru -> STOP [] service_rescue -> error_1_detection -> process_message -> find_idle_erus -> STOP)

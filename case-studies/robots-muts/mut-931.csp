@@ -1,0 +1,1 @@
+SUT = (testnext -> STOP [] datastream -> testnext -> STOP [] STOP)

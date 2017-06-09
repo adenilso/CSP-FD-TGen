@@ -1,0 +1,1 @@
+SUT = (drop_message -> STOP [] wait -> STOP [] STOP)

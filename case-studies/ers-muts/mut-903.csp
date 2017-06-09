@@ -1,0 +1,1 @@
+SUT = (process_message -> STOP [] STOP [] drop_message -> STOP)

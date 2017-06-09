@@ -1,0 +1,1 @@
+SUT = (testnext -> readyselfTestReq -> statuspartialFailure -> readynext -> STOP [] statusOk -> STOP [] testdata -> readynext -> procdata -> statuspartialFailure -> readyselfTestReq -> testnext -> statuspartialFailure -> STOP)
